@@ -1,10 +1,10 @@
-<template lang="">
-  <div>
-    <input v-model="searchQuery" @input="searchMovies" placeholder="Cerca film">
-    <ul>
-      <li v-for="movie in movies" :key="movie.id">{{ movie.title }}</li>
-    </ul>
-  </div>
+<template>
+    <div>
+        <input v-model="searchQuery" @input="searchMovies" placeholder="Cerca film">
+        <ul>
+            <li v-for="movie in movies" :key="movie.id">{{ movie.title }}</li>
+        </ul>
+    </div>
 </template>
 <script>
 
@@ -34,13 +34,23 @@ export default {
                     this.movies = response.data.results;
                 })
                 .catch((error) => {
-                    console.error('Errore nella ricerca film:', error);
+                    console.error('Mistake in the Movie searchlist:', error);
                 });
         },
     },
 }
 </script>
 
-<style lang="">
-    
+<style lang="scss">
+input {
+    color: white;
+}
+
+ul {
+    color: white;
+
+    li {
+        color: white;
+    }
+}
 </style>
