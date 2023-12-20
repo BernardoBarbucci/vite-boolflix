@@ -1,7 +1,9 @@
 <template lang="">
-    <div>
-        <h1>header is here</h1>
-    </div>
+    <header class="container">
+        
+        <div></div>
+        <div></div>
+    </header>
 </template>
 
 <script>
@@ -10,5 +12,9 @@ export default {
 }
 </script>
 
-<style lang="">
+<style lang="scss">
+header {
+    height: 5rem;
+    border: 2px solid yellow;
+}
 </style>
