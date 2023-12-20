@@ -2,7 +2,7 @@
     <div>
         <input v-model="searchQuery" @input="searchMovies" placeholder="Cerca film">
         <ul>
-            <li v-for="movie in movies" :key="movie.id">{{ movie.title }}</li>
+            <li v-for="movie in movies" :key="movie.id" @click="showMovieDetails(movie.id)">{{ movie.title }}</li>
         </ul>
     </div>
 </template>
