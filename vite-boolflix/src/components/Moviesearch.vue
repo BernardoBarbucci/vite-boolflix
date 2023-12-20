@@ -2,19 +2,23 @@
     <div>
         <input v-model="searchQuery" @input="searchMovies" placeholder="Cerca film">
         <ul>
-            <li v-for="movie in movies" :key="movie.id" @click="showMovieDetails(movie.id)">{{ movie.title }}</li>
+            <li v-for="movie in movies" :key="movie.id" @click="showMovieDetails(movie.id)">
+                {{ movie.title }}
+            </li>
         </ul>
+
+        <Movieinfo :movieDetails="selectedMovieDetails" />
     </div>
 </template>
+  
 <script>
-
 import axios from 'axios';
 import Movieinfo from './Movieinfo.vue';
 
 export default {
     name: 'Moviesearch',
     components: {
-        Movieinfos,
+        Movieinfo,
     },
     data() {
         return {
@@ -39,7 +43,7 @@ export default {
                     this.movies = response.data.results;
                 })
                 .catch((error) => {
-                    console.error('Mistake in the Movie searchlist:', error);
+                    console.error('Errore nella ricerca film:', error);
                 });
         },
         showMovieDetails(movieID) {
@@ -58,12 +62,12 @@ export default {
                 .catch((error) => {
                     console.error('Errore nel recupero dei dettagli del film:', error);
                 });
-        }
+        },
     },
-}
+};
 </script>
-
-<style lang="scss">
+  
+<style scoped>
 input {
     color: white;
 }
@@ -76,3 +80,4 @@ ul {
     }
 }
 </style>
+  
