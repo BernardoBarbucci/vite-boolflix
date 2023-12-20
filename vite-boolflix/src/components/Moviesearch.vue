@@ -13,10 +13,14 @@ import Movieinfo from './Movieinfo.vue';
 
 export default {
     name: 'Moviesearch',
+    components: {
+        Movieinfos,
+    },
     data() {
         return {
             searchQuery: '',
             movies: [],
+            selectedMovieDetails: null,
         };
     },
     methods: {
