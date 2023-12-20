@@ -9,6 +9,7 @@
 <script>
 
 import axios from 'axios';
+import Movieinfo from './Movieinfo.vue';
 
 export default {
     name: 'Moviesearch',

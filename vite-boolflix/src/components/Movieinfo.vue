@@ -11,6 +11,7 @@
 
 <script>
 export default {
+    name: Movieinfo,
     props: {
         Movieobject: Object,
     }
