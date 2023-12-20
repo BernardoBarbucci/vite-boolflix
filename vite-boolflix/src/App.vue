@@ -8,15 +8,17 @@
   
 <script>
 import Appheader from './components/Appheader.vue';
-import Appmain from './components/Appmain.vue';
+import Appmain from './components/Appmain.vue'
 import Appfooter from './components/Appfooter.vue';
+import Moviesearch from './components/Moviesearch.vue';
 
 export default {
     name: 'App',
     components: {
         Appheader,
         Appmain,
-        Appfooter
+        Moviesearch,
+        Appfooter,
     }
 }
 </script>
