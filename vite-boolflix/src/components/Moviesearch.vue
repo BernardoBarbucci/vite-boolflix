@@ -1,14 +1,16 @@
 <template>
-    <div>
-        <input v-model="searchQuery" @input="searchMovies" placeholder="Cerca film">
-        <ul>
-            <li v-for="movie in movies" :key="movie.id" @click="showMovieDetails(movie.id)">
-                {{ movie.title }}
-            </li>
-        </ul>
+    <section id="movie-search">
+        <div class="container">
+            <input v-model="searchQuery" @input="searchMovies" placeholder="Cerca film">
+            <ul>
+                <li v-for="movie in movies" :key="movie.id" @click="showMovieDetails(movie.id)">
+                    {{ movie.title }}
+                </li>
+            </ul>
 
-        <Movieinfo :movieDetails="selectedMovieDetails" />
-    </div>
+            <Movieinfo :movieDetails="selectedMovieDetails" />
+        </div>
+    </section>
 </template>
   
 <script>
@@ -69,15 +71,53 @@ export default {
   
 <style scoped>
 input {
+    width: 20rem;
+    height: 2.5rem;
+    padding-left: .5rem;
     color: white;
+    background: linear-gradient(90deg, red, black);
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 ul {
     color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
     li {
         color: white;
+        list-style-type: none;
+        margin-bottom: .2rem;
     }
 }
+
+/* 
+#movie-info .movie-details {
+    height: 100%;
+    width: 40rem;
+    margin: 2rem auto;
+    padding: 1rem;
+    border: 2px solid yellow;
+    background-color: #830000;
+
+    h2 {
+        color: white;
+        font-size: 2rem;
+        text-align: center;
+        margin-bottom: 1rem;
+        background-color: #830000;
+    }
+
+    p {
+        color: white;
+        background-color: #830000;
+    }
+} */
 </style>
   
