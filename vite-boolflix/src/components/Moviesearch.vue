@@ -38,6 +38,10 @@ export default {
                     console.error('Mistake in the Movie searchlist:', error);
                 });
         },
+        showMovieDetails(movieID) {
+            const apiKey = '5b64bb8553442712f5b4d63bfbe74199';
+            const url = `https://api.themoviedb.org/3/movie/${movieID}`;
+        }
     },
 }
 </script>
