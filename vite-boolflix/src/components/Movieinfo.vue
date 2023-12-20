@@ -11,7 +11,9 @@
 
 <script>
 export default {
-
+    props: {
+        Movieobject: Object,
+    }
 }
 </script>
 <style lang="sass">
