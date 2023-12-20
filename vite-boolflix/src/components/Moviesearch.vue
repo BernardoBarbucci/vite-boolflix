@@ -45,6 +45,19 @@ export default {
         showMovieDetails(movieID) {
             const apiKey = '5b64bb8553442712f5b4d63bfbe74199';
             const url = `https://api.themoviedb.org/3/movie/${movieID}`;
+
+            axios
+                .get(url, {
+                    params: {
+                        api_key: apiKey,
+                    },
+                })
+                .then((response) => {
+                    this.selectedMovieDetails = response.data;
+                })
+                .catch((error) => {
+                    console.error('Errore nel recupero dei dettagli del film:', error);
+                });
         }
     },
 }
