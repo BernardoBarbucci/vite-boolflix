@@ -75,7 +75,8 @@ input {
     height: 2.5rem;
     padding-left: .5rem;
     color: white;
-    background: linear-gradient(90deg, red, black);
+    background: linear-gradient(90deg, #830000, black);
+    border-radius: 20px;
 }
 
 .container {
@@ -85,39 +86,25 @@ input {
 }
 
 ul {
+    margin-top: 1rem;
     color: white;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
 
     li {
         color: white;
         list-style-type: none;
-        margin-bottom: .2rem;
+        margin-bottom: .8rem;
+        height: 2rem;
+        padding-top: 7px;
+        width: 100%;
+        border-radius: 20px;
+        border-color: white;
+        background-color: #830000;
+        text-align: center;
     }
 }
-
-/* 
-#movie-info .movie-details {
-    height: 100%;
-    width: 40rem;
-    margin: 2rem auto;
-    padding: 1rem;
-    border: 2px solid yellow;
-    background-color: #830000;
-
-    h2 {
-        color: white;
-        font-size: 2rem;
-        text-align: center;
-        margin-bottom: 1rem;
-        background-color: #830000;
-    }
-
-    p {
-        color: white;
-        background-color: #830000;
-    }
-} */
 </style>
   

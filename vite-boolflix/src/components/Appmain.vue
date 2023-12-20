@@ -1,6 +1,5 @@
 <template>
     <div>
-        <h1>Boolflix</h1>
         <Moviesearch />
     </div>
 </template>

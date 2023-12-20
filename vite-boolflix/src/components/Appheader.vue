@@ -1,8 +1,6 @@
 <template lang="">
-    <header class="container">
-        
-        <div></div>
-        <div></div>
+    <header>
+        <h1>BOOLFLIX</h1>
     </header>
 </template>
 
@@ -15,6 +13,12 @@ export default {
 <style lang="scss">
 header {
     height: 5rem;
-    border: 2px solid yellow;
+
+    h1 {
+        color: #830000;
+    }
+
+    // border: 2px solid yellow;
+    // background: linear-gradient(90deg, #830000, black);
 }
 </style>
