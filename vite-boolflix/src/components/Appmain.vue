@@ -1,6 +1,6 @@
 <template>
     <main>
-        <Moviesearch @update:selectedMovieID="updateSelectedMovieID" />
+        <Moviesearch @showMovieDetails="showMovieDetails" />
         <!-- includo movieinfo e passo selectedmovie come prop -->
         <Movieinfo :movieID="selectedMovieID" />
     </main>
@@ -43,7 +43,7 @@ export default {
         // gestisco l'evento showmoviedetails che parte da moviesearch
         showMovieDetails(movieID) {
             this.selectedMovieID = movieID;
-        }
+        },
     }
 };
 </script>

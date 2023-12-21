@@ -23,10 +23,6 @@ export default {
             movieDetails: null,
         };
     },
-    watch: {
-        // controlla/osserva il cambiamento della prop movieID
-        movieID: 'fetchMovieDetails',
-    },
     methods: {
         async fetchMovieDetails() {
             if (this.movieID) {
@@ -39,10 +35,14 @@ export default {
             }
         }
     },
-    // recupera ed esegue 'fetchMovieDetails' solo quando il componente viene montato
+    // Usa il watch per chiamare fetchMovieDetails quando movieID cambia
+    watch: {
+        movieID: 'fetchMovieDetails',
+    },
+    // Monta il componente e recupera i dettagli del film
     mounted() {
         this.fetchMovieDetails();
-    }
+    },
 };
 </script>
 
