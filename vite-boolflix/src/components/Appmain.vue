@@ -2,7 +2,8 @@
     <main>
         <Moviesearch @showMovieDetails="showMovieDetails" />
         <!-- includo movieinfo e passo selectedmovie come prop -->
-        <Movieinfo :movieID="selectedMovieID" />
+        <!-- <Movieinfo :movieID="selectedMovieID" /> -->
+        <Movieinfo ref="movieInfo" :movieID="selectedMovieID" />
     </main>
 </template>
   
@@ -42,7 +43,11 @@ export default {
         },
         // gestisco l'evento showmoviedetails che parte da moviesearch
         showMovieDetails(movieID) {
+            console.log('Evento ricevuto da Moviesearch:', movieID);
             this.selectedMovieID = movieID;
+
+            // Chiamare fetchMovieDetails direttamente qui nel componente Appmain
+            this.$refs.movieInfo.fetchMovieDetails();
         },
     }
 };
