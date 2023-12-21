@@ -27,6 +27,22 @@ export default {
         // controlla/osserva il cambiamento della prop movieID
         movieID: 'fetchMovieDetails',
     },
+    methods: {
+        async fetchMovieDetails() {
+            if (this.movieID) {
+                try {
+                    const response = await callAPI(`movie/${this.movieID}`);
+                    this.movieDetails = response.data;
+                } catch (error) {
+                    console.error('Errore nel recupero dei dettagli del film:', error);
+                }
+            }
+        }
+    },
+    // recupera ed esegue 'fetchMovieDetails' solo quando il componente viene montato
+    mounted() {
+        this.fetchMovieDetails();
+    }
 };
 </script>
 
