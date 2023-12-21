@@ -1,7 +1,9 @@
 <template>
     <main>
-        <Moviesearch :callAPI="callAPIForSearch" />
-        <Movieinfo :callAPI="callAPI" :movieID="selectedMovieID" />
+        <!-- includo moviesearch e passo il metodo come props + update per quando viene selezionionato il film -->
+        <Moviesearch :callAPI="callAPIForSearch" @update:selectedMovieID="updateSelectedMovieID" />
+        <!-- includo movieinfo e passo selectedmovie come prop -->
+        <Movieinfo :movieID="selectedMovieID" />
     </main>
 </template>
   
@@ -9,13 +11,22 @@
 import Moviesearch from './Moviesearch.vue';
 import Movieinfo from './Movieinfo.vue';
 
+import { ref } from 'vue';
+// Importare la funzione callAPI
+import { callAPI } from '@/utils/api';
+
 export default {
     name: 'Appmain',
     components: {
         Moviesearch,
         Movieinfo,
     },
-
+    data() {
+        return {
+            selectedMovieID: null,
+        };
+    },
+    methods
 };
 </script>
 
