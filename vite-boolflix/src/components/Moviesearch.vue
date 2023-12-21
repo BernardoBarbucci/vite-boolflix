@@ -29,43 +29,62 @@ export default {
             selectedMovieDetails: null,
         };
     },
+    // funzione generica per chiamate API
     methods: {
-        searchMovies() {
-            const apiKey = '5b64bb8553442712f5b4d63bfbe74199';
-            const url = 'https://api.themoviedb.org/3/search/movie';
+        callAPI() {
+            // apiUrl + endpoint
+            return axios.get('${apiUrl}', {
 
-            axios
-                .get(url, {
-                    params: {
-                        query: this.searchQuery,
-                        api_key: apiKey,
-                    },
-                })
-                .then((response) => {
-                    this.movies = response.data.results;
-                })
-                .catch((error) => {
-                    console.error('Errore nella ricerca film:', error);
-                });
-        },
-        showMovieDetails(movieID) {
-            const apiKey = '5b64bb8553442712f5b4d63bfbe74199';
-            const url = `https://api.themoviedb.org/3/movie/${movieID}`;
 
-            axios
-                .get(url, {
-                    params: {
-                        api_key: apiKey,
-                    },
-                })
-                .then((response) => {
-                    this.selectedMovieDetails = response.data;
-                })
-                .catch((error) => {
-                    console.error('Errore nel recupero dei dettagli del film:', error);
-                });
-        },
-    },
+            }
+        }
+    }
+
+
+    // SearchMovies 
+
+
+
+    // showMovieDetails
+
+
+    // methods: {
+    //     searchMovies() {
+    //         const apiKey = '5b64bb8553442712f5b4d63bfbe74199';
+    //         const apiUrl = 'https://api.themoviedb.org/3/search/movie';
+
+    //         axios
+    //             .get(apiUrl, {
+    //                 params: {
+    //                     query: this.searchQuery,
+    //                     api_key: apiKey,
+    //                 },
+    //             })
+    //             .then((response) => {
+    //                 this.movies = response.data.results;
+    //             })
+    //             .catch((error) => {
+    //                 console.error('Errore nella ricerca film:', error);
+    //             });
+    //     },
+    //     showMovieDetails(movieID) {
+    //         const apiKey = '5b64bb8553442712f5b4d63bfbe74199';
+    //         const apiUrl = `https://api.themoviedb.org/3/movie/${movieID}`;
+
+    //         axios
+    //             .get(apiUrl, {
+    //                 params: {
+    //                     api_key: apiKey,
+    //                 },
+    //             })
+    //             .then((response) => {
+    //                 this.selectedMovieDetails = response.data;
+    //             })
+    //             .catch((error) => {
+    //                 console.error('Errore nel recupero dei dettagli del film:', error);
+    //             });
+    //     },
+    // },
 };
 </script>
   
@@ -77,6 +96,7 @@ input {
     color: white;
     background: linear-gradient(90deg, #830000, black);
     border-radius: 20px;
+    border: none;
 }
 
 .container {

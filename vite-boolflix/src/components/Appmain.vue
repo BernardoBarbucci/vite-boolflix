@@ -20,3 +20,8 @@ h1 {
     color: white;
 }
 </style>
+
+<!-- TYPE: 
+cd /Users/Berna/Desktop/vite-boolflix/vite-boolflix
+npm run dev
+-->
