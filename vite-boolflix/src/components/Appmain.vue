@@ -13,7 +13,7 @@ import Movieinfo from './Movieinfo.vue';
 
 import { ref } from 'vue';
 // Importare la funzione callAPI
-import { callAPI } from '@/utils/api';
+import { callAPI } from './api';
 
 export default {
     name: 'Appmain',

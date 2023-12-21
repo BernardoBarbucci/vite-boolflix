@@ -12,16 +12,31 @@
 </template>
   
 <script>
-import axios from 'axios';
-import Movieinfo from './Movieinfo.vue';
-
-// const per api generiche
-const apiKey = '5b64bb8553442712f5b4d63bfbe74199';
-const apiUrl = 'https://api.themoviedb.org/3';
+import { ref } from 'vue';
+import { callAPI } from './api';
 
 export default {
     name: 'Moviesearch',
-}
+    data() {
+        return {
+            searchQuery: '',
+            movies: [],
+        };
+    },
+    methods: {
+        async searchMovies() {
+            try {
+                const response = await callAPI('search/movie', { query: this.searchQuery });
+                this.movies = response.data.results;
+            } catch (error) {
+                console.error('Errore nella ricerca film:', error);
+            }
+        },
+        showMovieDetails(movieID) {
+            this.$emit('update:selectedMovieID', movieID);
+        },
+    },
+};
 </script>
   
 <style scoped>

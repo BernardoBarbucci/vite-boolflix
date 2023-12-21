@@ -10,8 +10,29 @@
 </template>
 
 <script>
+import { ref } from 'vue';
+import { callAPI } from './api';
+
 export default {
     name: 'Movieinfo',
+    props: {
+        movieID: Number,
+    },
+    data() {
+        return {
+            movieDetails: null,
+        };
+    },
+    async mounted() {
+        if (this.movieID) {
+            try {
+                const response = await callAPI(`movie/${this.movieID}`);
+                this.movieDetails = response.data;
+            } catch (error) {
+                console.error('Errore nel recupero dei dettagli del film:', error);
+            }
+        }
+    },
 };
 </script>
 
