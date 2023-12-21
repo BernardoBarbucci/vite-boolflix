@@ -1,7 +1,6 @@
 <template>
     <main>
-        <!-- includo moviesearch e passo il metodo come props + update per quando viene selezionionato il film -->
-        <Moviesearch :callAPI="callAPIForSearch" @showMovieDetails="showMovieDetails" />
+        <Moviesearch @update:selectedMovieID="updateSelectedMovieID" />
         <!-- includo movieinfo e passo selectedmovie come prop -->
         <Movieinfo :movieID="selectedMovieID" />
     </main>

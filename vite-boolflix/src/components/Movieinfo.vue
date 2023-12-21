@@ -23,15 +23,9 @@ export default {
             movieDetails: null,
         };
     },
-    async mounted() {
-        if (this.movieID) {
-            try {
-                const response = await callAPI(`movie/${this.movieID}`);
-                this.movieDetails = response.data;
-            } catch (error) {
-                console.error('Errore nel recupero dei dettagli del film:', error);
-            }
-        }
+    watch: {
+        // controlla/osserva il cambiamento della prop movieID
+        movieID: 'fetchMovieDetails',
     },
 };
 </script>

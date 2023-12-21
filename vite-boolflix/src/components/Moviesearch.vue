@@ -8,14 +8,11 @@
                 </li>
             </ul>
         </div>
-        <!-- Movieinfo passa le informazioni del film selezionato -->
-        <!-- <Movieinfo v-if="selectedMovieDetails" :movieDetails="selectedMovieDetails" /> -->
     </section>
 </template>
   
 <script>
 import axios from 'axios';
-// import Movieinfo from './Movieinfo.vue';
 import { callAPI } from './api';
 
 export default {
@@ -24,7 +21,6 @@ export default {
         return {
             searchQuery: '',
             movies: [],
-            // selectedMovieDetails: null,
         };
     },
     methods: {
@@ -32,7 +28,7 @@ export default {
             console.log('Query:', this.searchQuery);
             try {
                 const response = await callAPI('search/movie', { query: this.searchQuery });
-                this.movies = response.results; // Modifica questa linea
+                this.movies = response.results;
             } catch (error) {
                 console.error('Errore nella ricerca film:', error);
             }
