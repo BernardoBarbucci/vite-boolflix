@@ -60,49 +60,16 @@ export default {
                 console.error('Errore nella ricerca film:', error);
             });
     },
-
-
-
     // showMovieDetails
-
-
-    // methods: {
-    //     searchMovies() {
-    //         const apiKey = '5b64bb8553442712f5b4d63bfbe74199';
-    //         const apiUrl = 'https://api.themoviedb.org/3/search/movie';
-
-    //         axios
-    //             .get(apiUrl, {
-    //                 params: {
-    //                     query: this.searchQuery,
-    //                     api_key: apiKey,
-    //                 },
-    //             })
-    //             .then((response) => {
-    //                 this.movies = response.data.results;
-    //             })
-    //             .catch((error) => {
-    //                 console.error('Errore nella ricerca film:', error);
-    //             });
-    //     },
-    //     showMovieDetails(movieID) {
-    //         const apiKey = '5b64bb8553442712f5b4d63bfbe74199';
-    //         const apiUrl = `https://api.themoviedb.org/3/movie/${movieID}`;
-
-    //         axios
-    //             .get(apiUrl, {
-    //                 params: {
-    //                     api_key: apiKey,
-    //                 },
-    //             })
-    //             .then((response) => {
-    //                 this.selectedMovieDetails = response.data;
-    //             })
-    //             .catch((error) => {
-    //                 console.error('Errore nel recupero dei dettagli del film:', error);
-    //             });
-    //     },
-    // },
+    showMovieDetails(movieID) {
+        this.callApi(`movie/${movieID}`)
+            .then((response) => {
+                this.selectedMovieDetails = response.data;
+            })
+            .catch((error) => {
+                console.error('Errore nel recupero dei dettagli del film:', error);
+            });
+    },
 };
 </script>
   
