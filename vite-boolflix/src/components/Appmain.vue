@@ -44,9 +44,9 @@ export default {
             this.selectedMovieID = movieID;
         },
         // gestisco l'evento movieInfoMounted emesso da Movieinfo
-        handleMovieInfoMounted() {
+        async handleMovieInfoMounted() {
             // Chiamare fetchMovieDetails direttamente qui nel componente Appmain
-            this.fetchMovieDetails();
+            await this.fetchMovieDetails();
         },
         // fetchMovieDetails spostato qua da Moviesearch
         async fetchMovieDetails() {

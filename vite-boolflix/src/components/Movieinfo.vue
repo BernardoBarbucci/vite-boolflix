@@ -10,7 +10,6 @@
 </template>
 
 <script>
-
 import { callAPI } from './api';
 import { ref, onMounted } from 'vue';
 
