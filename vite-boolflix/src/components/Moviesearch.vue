@@ -33,6 +33,7 @@ export default {
             selectedMovieDetails: null,
         };
     },
+
     // funzione generica per chiamate API
     methods: {
         callAPI() {
@@ -47,10 +48,18 @@ export default {
                 },
             });
         }
-    }
+    },
 
-
-    // SearchMovies 
+    // SearchMovies
+    searchMovies() {
+        this.callApi('search/movie', { query: this.searchQuery })
+            .then((response) => {
+                this.movies = response.data.results;
+            })
+            .catch((error) => {
+                console.error('Errore nella ricerca film:', error);
+            });
+    },
 
 
 
