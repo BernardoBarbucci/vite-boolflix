@@ -7,8 +7,6 @@
                     {{ movie.title }}
                 </li>
             </ul>
-
-            <Movieinfo :movieDetails="selectedMovieDetails" />
         </div>
     </section>
 </template>
@@ -23,52 +21,8 @@ const apiUrl = 'https://api.themoviedb.org/3';
 
 export default {
     name: 'Moviesearch',
-    components: {
-        Movieinfo,
-    },
-    data() {
-        return {
-            searchQuery: '',
-            movies: [],
-            selectedMovieDetails: null,
-        };
-    },
-
-    // funzione generica per chiamate API
-    methods: {
-        callAPI() {
-            // apiUrl + endpoint
-            return axios.get('${apiUrl}{endpoint}', {
-                // parametro della richiesta
-                params: {
-                    // parametro collegato agli endpoint
-                    api_key: apiKey,
-                    // operatore spread per aggiungere la query
-                    ...params,
-                },
-            });
-        }
-    },
-
-    // SearchMovies
-    searchMovies() {
-        this.callApi('search/movie', { query: this.searchQuery })
-            .then((response) => {
-                this.movies = response.data.results;
-            })
-            .catch((error) => {
-                console.error('Errore nella ricerca film:', error);
-            });
-    },
-    // showMovieDetails
-    showMovieDetails(movieID) {
-        this.callApi(`movie/${movieID}`)
-            .then((response) => {
-                this.selectedMovieDetails = response.data;
-            })
-            .catch((error) => {
-                console.error('Errore nel recupero dei dettagli del film:', error);
-            });
+    props: {
+        callAPI: Function, // props che accetta funzione
     },
 };
 </script>

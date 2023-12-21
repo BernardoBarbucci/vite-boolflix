@@ -1,6 +1,6 @@
 <template>
     <div>
-        <Moviesearch />
+        <Moviesearch :callAPI="'callAPIForSearch'" />
     </div>
 </template>
   
