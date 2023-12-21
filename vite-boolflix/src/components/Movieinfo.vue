@@ -10,6 +10,7 @@
 </template>
 
 <script>
+
 import { callAPI } from './api';
 import { ref, onMounted } from 'vue';
 
@@ -22,21 +23,6 @@ export default {
         return {
             movieDetails: null,
         };
-    },
-    watch: {
-        movieID: 'fetchMovieDetails',
-    },
-    methods: {
-        async fetchMovieDetails() {
-            if (this.movieID) {
-                try {
-                    const response = await callAPI(`movie/${this.movieID}`);
-                    this.movieDetails = response.data;
-                } catch (error) {
-                    console.error('Errore nel recupero dei dettagli del film:', error);
-                }
-            }
-        }
     },
     // Emetti un evento quando il componente è montato
     mounted() {
