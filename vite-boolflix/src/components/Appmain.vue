@@ -26,7 +26,26 @@ export default {
             selectedMovieID: null,
         };
     },
-    methods
+    methods: {
+        // funzione generica per fare le chiamate api
+        async callAPI(endpoint, params = {}) {
+            try {
+                const response = await callAPI(endpoint, params);
+                return response.data;
+            } catch (error) {
+                console.error('Errore nella chiamata API:', error);
+                throw error;
+            }
+        },
+        // funzione specifica per cercare i film
+        async callAPIForSearch(params) {
+            return this.callAPI('search/movie', { ...params });
+        },
+        // update di selected movie quando viene mostrato come risultato della ricerca di searchmovie
+        updateSelectedMovieID(movieID) {
+            this.selectedMovieID = movieID;
+        }
+    }
 };
 </script>
 
