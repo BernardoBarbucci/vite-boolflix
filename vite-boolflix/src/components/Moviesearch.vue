@@ -17,6 +17,10 @@
 import axios from 'axios';
 import Movieinfo from './Movieinfo.vue';
 
+// const per api generiche
+const apiKey = '5b64bb8553442712f5b4d63bfbe74199';
+const apiUrl = 'https://api.themoviedb.org/3';
+
 export default {
     name: 'Moviesearch',
     components: {
@@ -33,10 +37,15 @@ export default {
     methods: {
         callAPI() {
             // apiUrl + endpoint
-            return axios.get('${apiUrl}', {
-
-
-            }
+            return axios.get('${apiUrl}{endpoint}', {
+                // parametro della richiesta
+                params: {
+                    // parametro collegato agli endpoint
+                    api_key: apiKey,
+                    // operatore spread per aggiungere la query
+                    ...params,
+                },
+            });
         }
     }
 
