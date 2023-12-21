@@ -12,32 +12,6 @@
 <script>
 export default {
     name: 'Movieinfo',
-    props: {
-        callAPI: Function, // Accetta la funzione callAPI come prop
-    },
-    data() {
-        return {
-            movieDetails: null,
-        };
-    },
-    methods: {
-        // Funzione per ottenere info
-        getMovieDetails(movieID) {
-            this.callAPI(`movie/${movieID}`)
-                .then((response) => {
-                    this.movieDetails = response.data;
-                })
-                .catch((error) => {
-                    console.error('Errore nel recupero dei dettagli del film:', error);
-                });
-        },
-    },
-    // Richiama la funzione getMovieDetails quando il componente viene creato
-    created() {
-        if (this.$route.params.movieID) {
-            this.getMovieDetails(this.$route.params.movieID);
-        }
-    },
 };
 </script>
 

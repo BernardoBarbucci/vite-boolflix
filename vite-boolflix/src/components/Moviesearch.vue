@@ -21,30 +21,7 @@ const apiUrl = 'https://api.themoviedb.org/3';
 
 export default {
     name: 'Moviesearch',
-    props: {
-        callAPI: Function, // props che accetta funzione
-    },
-    data() {
-        return {
-            searchQuery: '',
-            movies: [],
-        };
-    },
-    methods: {
-        searchMovies() {
-            this.callAPI({ query: this.searchQuery })
-                .then((response) => {
-                    this.movies = response.data.results;
-                })
-                .catch((error) => {
-                    console.error('Errore nella ricerca film:', error);
-                });
-        },
-        showMovieDetails(movieID) {
-            // Aggiungi qui la tua logica per gestire i dettagli del film cliccato
-        },
-    },
-};
+}
 </script>
   
 <style scoped>

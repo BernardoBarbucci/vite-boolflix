@@ -15,27 +15,7 @@ export default {
         Moviesearch,
         Movieinfo,
     },
-    data() {
-        return {
-            selectedMovieID: null,
-        };
-    },
-    methods: {
-        // Funzione per chiamate API generiche
-        callAPI(endpoint, params = {
 
-        }) {
-            // Aggiungi qui la tua logica per le chiamate API generiche
-        },
-        // Funzione specifica per la ricerca di film
-        callAPIForSearch(params) {
-            return this.callAPI('search/movie', { ...params });
-        },
-        // Funzione per visualizzare i dettagli del film
-        showMovieDetails(movieID) {
-            this.selectedMovieID = movieID;
-        },
-    },
 };
 </script>
 
