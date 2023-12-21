@@ -26,12 +26,13 @@ export default {
     methods: {
         async searchMovies() {
             try {
-                const response = await callAPI('search/movie', { query: this.searchQuery });
+                const response = await callAPI('search/movie', { params: { query: this.searchQuery } });
                 this.movies = response.data.results;
             } catch (error) {
                 console.error('Errore nella ricerca film:', error);
             }
         },
+        // $emit
         showMovieDetails(movieID) {
             this.$emit('update:selectedMovieID', movieID);
         },
