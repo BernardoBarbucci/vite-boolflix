@@ -1,7 +1,7 @@
 <template>
     <main>
         <!-- includo moviesearch e passo il metodo come props + update per quando viene selezionionato il film -->
-        <Moviesearch :callAPI="callAPIForSearch" @update:selectedMovieID="updateSelectedMovieID" />
+        <Moviesearch :callAPI="callAPIForSearch" @showMovieDetails="showMovieDetails" />
         <!-- includo movieinfo e passo selectedmovie come prop -->
         <Movieinfo :movieID="selectedMovieID" />
     </main>
@@ -41,8 +41,8 @@ export default {
         async callAPIForSearch(params) {
             return this.callAPI('search/movie', { ...params });
         },
-        // update di selected movie quando viene mostrato come risultato della ricerca di searchmovie
-        updateSelectedMovieID(movieID) {
+        // gestisco l'evento showmoviedetails che parte da moviesearch
+        showMovieDetails(movieID) {
             this.selectedMovieID = movieID;
         }
     }

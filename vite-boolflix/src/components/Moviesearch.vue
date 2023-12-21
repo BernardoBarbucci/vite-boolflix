@@ -8,11 +8,14 @@
                 </li>
             </ul>
         </div>
+        <!-- Movieinfo passa le informazioni del film selezionato -->
+        <!-- <Movieinfo v-if="selectedMovieDetails" :movieDetails="selectedMovieDetails" /> -->
     </section>
 </template>
   
 <script>
-import { ref } from 'vue';
+import axios from 'axios';
+// import Movieinfo from './Movieinfo.vue';
 import { callAPI } from './api';
 
 export default {
@@ -21,6 +24,7 @@ export default {
         return {
             searchQuery: '',
             movies: [],
+            // selectedMovieDetails: null,
         };
     },
     methods: {
@@ -35,7 +39,7 @@ export default {
         },
         // $emit
         showMovieDetails(movieID) {
-            this.$emit('update:selectedMovieID', movieID);
+            this.$emit('showMovieDetails', movieID);
         },
     },
 };
