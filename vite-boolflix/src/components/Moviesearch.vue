@@ -35,7 +35,7 @@ export default {
         },
         // $emit
         showMovieDetails(movieID) {
-            this.$emit('update:selectedMovieID', movieID);
+            this.$emit('showMovieDetails', movieID);
         },
     },
 };
