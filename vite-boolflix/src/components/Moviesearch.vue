@@ -25,9 +25,10 @@ export default {
     },
     methods: {
         async searchMovies() {
+            console.log('Query:', this.searchQuery);
             try {
-                const response = await callAPI('search/movie', { params: { query: this.searchQuery } });
-                this.movies = response.data.results;
+                const response = await callAPI('search/movie', { query: this.searchQuery });
+                this.movies = response.results; // Modifica questa linea
             } catch (error) {
                 console.error('Errore nella ricerca film:', error);
             }
@@ -79,4 +80,3 @@ ul {
     }
 }
 </style>
-  
