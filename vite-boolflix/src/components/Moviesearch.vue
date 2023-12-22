@@ -13,9 +13,6 @@
 </template>
   
 <script>
-// import axios from 'axios';
-// import { callAPI } from './api';
-
 export default {
     name: 'Moviesearch',
     data() {
@@ -23,21 +20,12 @@ export default {
             searchedString: '',
         };
     },
-    // methods: {
-    //     async searchMovies() {
-    //         console.log('Query:', this.searchQuery);
-    //         try {
-    //             const response = await callAPI('search/movie', { query: this.searchQuery });
-    //             this.movies = response.results;
-    //         } catch (error) {
-    //             console.error('Errore nella ricerca film:', error);
-    //         }
-    //     },
-    //     // $emit
-    //     showMovieDetails(movieID) {
-    //         this.$emit('showMovieDetails', movieID);
-    //     },
-    // },
+    methods: {
+        searchMovies() {
+            // Emetto l'evento "search" con la stringa cercata
+            this.$emit('search', this.searchedString);
+        },
+    },
 };
 </script>
   
@@ -80,3 +68,19 @@ ul {
     }
 }
 </style>
+
+<!-- // methods: {
+    //     async searchMovies() {
+    //         console.log('Query:', this.searchQuery);
+    //         try {
+    //             const response = await callAPI('search/movie', { query: this.searchQuery });
+    //             this.movies = response.results;
+    //         } catch (error) {
+    //             console.error('Errore nella ricerca film:', error);
+    //         }
+    //     },
+    //     // $emit
+    //     showMovieDetails(movieID) {
+    //         this.$emit('showMovieDetails', movieID);
+    //     },
+    // }, -->
