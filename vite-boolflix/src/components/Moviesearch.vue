@@ -1,7 +1,7 @@
 <template>
     <section id="movie-search">
         <div class="container">
-            <input v-model="searchedString" type="text" placeholder="Cerca film">
+            <input v-model="searchedString" type="text" placeholder="Cerca film" @keyup.enter="searchMovies">
             <button @click="$emit('search', searchedString)">cerca</button>
         </div>
     </section>
@@ -41,19 +41,3 @@ input {
     align-items: center;
 }
 </style>
-
-<!-- // methods: {
-    //     async searchMovies() {
-    //         console.log('Query:', this.searchQuery);
-    //         try {
-    //             const response = await callAPI('search/movie', { query: this.searchQuery });
-    //             this.movies = response.results;
-    //         } catch (error) {
-    //             console.error('Errore nella ricerca film:', error);
-    //         }
-    //     },
-    //     // $emit
-    //     showMovieDetails(movieID) {
-    //         this.$emit('showMovieDetails', movieID);
-    //     },
-    // }, -->
