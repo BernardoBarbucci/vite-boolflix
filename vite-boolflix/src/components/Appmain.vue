@@ -40,7 +40,7 @@ export default {
         },
         // gestisco l'evento showmoviedetails che parte da moviesearch
         showMovieDetails(movieID) {
-            console.log('evento ricevuto giustamente dal film numero:', movieID);
+            console.log('evento ricevuto coorettamente dal film numero:', movieID);
             this.selectedMovieID = movieID;
         },
         // gestisco l'evento movieInfoMounted emesso da Movieinfo
