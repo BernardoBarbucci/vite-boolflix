@@ -2,7 +2,7 @@
     <section id="movie-search">
         <div class="container">
             <input v-model="searchedString" type="text" placeholder="Cerca film" @keyup.enter="searchMovies">
-            <button @click="$emit('search', searchedString)">cerca</button>
+            <button @click="$emit('search', searchedString)">Cerca</button>
         </div>
     </section>
 </template>
@@ -39,5 +39,15 @@ input {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+button {
+    background-color: #830000;
+    border-radius: 20px;
+    color: grey;
+    border: none;
+    margin-top: .5rem;
+    height: 2rem;
+    width: 3rem;
 }
 </style>

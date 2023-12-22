@@ -1,4 +1,4 @@
-<template lang="">
+<template>
     <section id="movie-info">
         <div v-if="movieDetails" class="movie-details">
             <h2>{{ movieDetails.title }}</h2>
@@ -10,7 +10,6 @@
 </template>
 
 <script>
-
 export default {
     name: 'Movieinfo',
     props: {
