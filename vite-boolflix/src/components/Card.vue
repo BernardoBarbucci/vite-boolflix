@@ -17,8 +17,9 @@ export default {
     },
     methods: {
         handleCardClick() {
-            console.log('Card cliccata dovrebbe segnalare questo film:', this.movie);
-            this.$emit('selectMovie', this.movie);
+            if (!this.movie.selected) {
+                this.$emit('selectMovie', this.movie);
+            }
         },
     },
 };

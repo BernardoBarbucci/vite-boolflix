@@ -20,6 +20,9 @@ export default {
     methods: {
         selectMovie(movie) {
             this.$emit('selectMovie', movie);
+            this.movies.forEach((m) => {
+                m.selected = m.id === movie.id;
+            });
         },
     },
 };

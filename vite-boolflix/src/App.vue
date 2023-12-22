@@ -26,8 +26,8 @@ export default {
         return {
             moviesList: [],
             selectedMovie: null,
-            showDetails: false, //metto false alle info di default cosi che non si vedano alla ricerca
-        }
+            showMovieDetails: false,
+        };
     },
     methods: {
         searchMovies(searchElement) {
