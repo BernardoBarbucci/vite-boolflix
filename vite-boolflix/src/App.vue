@@ -3,7 +3,7 @@
         <Appheader />
         <Moviesearch @search="searchMovies" />
         <Appmain :movies="moviesList" @selectMovie="showMovieDetails" />
-        <MovieDetails :selectedMovie="selectedMovie" v-if="selectedMovie" />
+        <CardDetails :selectedMovie="selectedMovie" v-if="selectedMovie" />
     </div>
 </template>
   
@@ -20,7 +20,7 @@ export default {
         Appheader,
         Appmain,
         Moviesearch,
-        Movieinfo,
+        Card,
     },
     data() {
         return {

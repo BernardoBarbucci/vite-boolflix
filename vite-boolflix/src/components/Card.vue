@@ -17,9 +17,9 @@ export default {
     },
     methods: {
         handleCardClick() {
-
-        }
-    }
+            this.$emit('selectMovie', this.movie);
+        },
+    },
 };
 </script>
   
