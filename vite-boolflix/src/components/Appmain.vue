@@ -7,6 +7,8 @@
 </template>
   
 <script>
+import Movieinfo from './Card.vue';
+
 export default {
     name: 'Appmain',
 

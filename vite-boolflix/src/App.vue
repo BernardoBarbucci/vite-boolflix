@@ -2,7 +2,8 @@
     <div>
         <Appheader />
         <Moviesearch @search="searchMovies" />
-        <Appmain :movies="moviesList" />
+        <Appmain :movies="moviesList" @selectMovie="showMovieDetails" />
+        <MovieDetails :selectedMovie="selectedMovie" v-if="selectedMovie" />
     </div>
 </template>
   
@@ -10,6 +11,7 @@
 import Appheader from './components/Appheader.vue';
 import Appmain from './components/Appmain.vue'
 import Moviesearch from './components/Moviesearch.vue';
+import Card from './components/Card.vue';
 import axios from 'axios';
 
 export default {
@@ -18,10 +20,12 @@ export default {
         Appheader,
         Appmain,
         Moviesearch,
+        Movieinfo,
     },
     data() {
         return {
             moviesList: [],
+            selectedMovie: null,
         }
     },
     methods: {
@@ -37,8 +41,13 @@ export default {
                 .catch(function (error) {
                     // handle error
                     console.log(error);
-                })
-        }
+                });
+        },
+        showMovieDetails(movie) {
+            // Visualizza i dettagli del film senza fare una seconda chiamata API
+            this.selectedMovie = movie;
+
+        },
     },
     created() {
         console.log('created funziona');
