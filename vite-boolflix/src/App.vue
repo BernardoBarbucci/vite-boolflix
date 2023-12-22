@@ -1,8 +1,8 @@
 <template>
     <div>
         <Appheader />
-        <Moviesearch />
-        <Appmain />
+        <Moviesearch @search="searchMovies" />
+        <Appmain :movies="moviesList" />
     </div>
 </template>
   
@@ -10,7 +10,7 @@
 import Appheader from './components/Appheader.vue';
 import Appmain from './components/Appmain.vue'
 import Moviesearch from './components/Moviesearch.vue';
-import axios from 'axios'
+import axios from 'axios';
 
 export default {
     name: 'App',
@@ -18,7 +18,23 @@ export default {
         Appheader,
         Appmain,
         Moviesearch,
+    },
+    data() {
+        return {
+            moviesList: [],
+        }
+    },
+    methods: {
+        searchMovies(searchElement) {
+
+        }
+    },
+    created() {
+        console.log('created funziona');
+        this.searchMovies();
     }
+
+
 }
 </script>
   

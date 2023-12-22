@@ -1,43 +1,43 @@
 <template>
     <section id="movie-search">
         <div class="container">
-            <input v-model="searchQuery" @input="searchMovies" placeholder="Cerca film">
-            <ul>
+            <input v-model="searchedString" type="text" placeholder="Cerca film">
+            <button @click="$emit('search', searchedString)">cerca</button>
+            <!-- <ul>
                 <li v-for="movie in movies" :key="movie.id" @click="showMovieDetails(movie.id)">
                     {{ movie.title }}
                 </li>
-            </ul>
+            </ul> -->
         </div>
     </section>
 </template>
   
 <script>
-import axios from 'axios';
-import { callAPI } from './api';
+// import axios from 'axios';
+// import { callAPI } from './api';
 
 export default {
     name: 'Moviesearch',
     data() {
         return {
-            searchQuery: '',
-            movies: [],
+            searchedString: '',
         };
     },
-    methods: {
-        async searchMovies() {
-            console.log('Query:', this.searchQuery);
-            try {
-                const response = await callAPI('search/movie', { query: this.searchQuery });
-                this.movies = response.results;
-            } catch (error) {
-                console.error('Errore nella ricerca film:', error);
-            }
-        },
-        // $emit
-        showMovieDetails(movieID) {
-            this.$emit('showMovieDetails', movieID);
-        },
-    },
+    // methods: {
+    //     async searchMovies() {
+    //         console.log('Query:', this.searchQuery);
+    //         try {
+    //             const response = await callAPI('search/movie', { query: this.searchQuery });
+    //             this.movies = response.results;
+    //         } catch (error) {
+    //             console.error('Errore nella ricerca film:', error);
+    //         }
+    //     },
+    //     // $emit
+    //     showMovieDetails(movieID) {
+    //         this.$emit('showMovieDetails', movieID);
+    //     },
+    // },
 };
 </script>
   
