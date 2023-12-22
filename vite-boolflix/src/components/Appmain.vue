@@ -1,25 +1,28 @@
 <template>
     <main>
-        <article v-for="movie in movies">
+        <Card v-for="movie in movies" :key="movie.id" :movie="movie" @selectMovie="selectMovie">
             {{ movie.title }}
-        </article>
+        </Card>
     </main>
 </template>
   
 <script>
-import Movieinfo from './Card.vue';
+import Card from './Card.vue';
 
 export default {
     name: 'Appmain',
-
+    components: {
+        Card,
+    },
     props: {
-        movies: {
-            type: Array,
-            required: true
-        }
-    }
+        movies: Array,
+    },
+    methods: {
+        selectMovie(movie) {
+            this.$emit('selectMovie', movie);
+        },
+    },
 };
-
 </script>
 
 <style lang="scss">

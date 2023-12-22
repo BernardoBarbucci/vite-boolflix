@@ -51,7 +51,6 @@ export default {
     },
     created() {
         console.log('created funziona');
-        this.searchMovies();
     }
 }
 </script>
