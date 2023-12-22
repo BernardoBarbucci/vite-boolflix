@@ -26,7 +26,7 @@ export default {
     },
     methods: {
         searchMovies(searchElement) {
-
+            console.log(searchElement);
         }
     },
     created() {

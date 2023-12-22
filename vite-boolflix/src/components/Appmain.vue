@@ -9,9 +9,6 @@
 import Moviesearch from './Moviesearch.vue';
 import Movieinfo from './Movieinfo.vue';
 
-import { ref } from 'vue';
-import { callAPI } from './api';
-
 export default {
     name: 'Appmain',
     components: {
