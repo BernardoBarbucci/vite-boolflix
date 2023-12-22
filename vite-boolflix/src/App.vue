@@ -26,6 +26,7 @@ export default {
         return {
             moviesList: [],
             selectedMovie: null,
+            showDetails: false, //metto false alle info di default cosi che non si vedano alla ricerca
         }
     },
     methods: {
@@ -46,7 +47,7 @@ export default {
         showMovieDetails(movie) {
             // Visualizza i dettagli del film senza fare una seconda chiamata API
             this.selectedMovie = movie;
-
+            this.showDetails = true;
         },
     },
     created() {

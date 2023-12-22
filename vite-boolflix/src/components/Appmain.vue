@@ -39,7 +39,7 @@ main {
         color: white;
         list-style-type: none;
         margin-bottom: .8rem;
-        height: 2rem;
+        height: 6rem;
         padding-top: 7px;
         width: 100%;
         border-radius: 20px;

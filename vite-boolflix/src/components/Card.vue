@@ -25,7 +25,7 @@ export default {
 </script>
   
 <style lang="scss">
-#movie-info .movie-details {
+.movie-details {
     height: 100%;
     width: 40rem;
     margin: 2rem auto;
