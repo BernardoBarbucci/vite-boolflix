@@ -27,6 +27,16 @@ export default {
     methods: {
         searchMovies(searchElement) {
             console.log(searchElement);
+
+            axios.get('https://api.themoviedb.org/3/search/movie?api_key=5b64bb8553442712f5b4d63bfbe74199&query=' + searchElement)
+                .then(function (response) {
+                    // handle success
+                    console.log(response);
+                })
+                .catch(function (error) {
+                    // handle error
+                    console.log(error);
+                })
         }
     },
     created() {
@@ -41,3 +51,9 @@ export default {
 <style lang="scss">
 @use './components/style/main.scss' as *;
 </style>
+
+
+<!-- TYPE: 
+cd /Users/Berna/Desktop/vite-boolflix/vite-boolflix
+npm run dev
+-->
