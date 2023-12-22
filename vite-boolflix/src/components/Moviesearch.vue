@@ -3,11 +3,6 @@
         <div class="container">
             <input v-model="searchedString" type="text" placeholder="Cerca film">
             <button @click="$emit('search', searchedString)">cerca</button>
-            <!-- <ul>
-                <li v-for="movie in movies" :key="movie.id" @click="showMovieDetails(movie.id)">
-                    {{ movie.title }}
-                </li>
-            </ul> -->
         </div>
     </section>
 </template>
@@ -44,28 +39,6 @@ input {
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-
-ul {
-    margin-top: 1rem;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-
-    li {
-        color: white;
-        list-style-type: none;
-        margin-bottom: .8rem;
-        height: 2rem;
-        padding-top: 7px;
-        width: 100%;
-        border-radius: 20px;
-        border-color: white;
-        background-color: #830000;
-        text-align: center;
-    }
 }
 </style>
 

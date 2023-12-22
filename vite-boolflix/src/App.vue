@@ -29,9 +29,10 @@ export default {
             console.log(searchElement);
 
             axios.get('https://api.themoviedb.org/3/search/movie?api_key=5b64bb8553442712f5b4d63bfbe74199&query=' + searchElement)
-                .then(function (response) {
+                .then((response) => {
                     // handle success
                     console.log(response);
+                    this.moviesList = response.data.results;
                 })
                 .catch(function (error) {
                     // handle error
