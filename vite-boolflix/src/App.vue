@@ -3,7 +3,7 @@
         <Appheader />
         <Moviesearch @search="searchMovies" />
         <Appmain :movies="moviesList" @selectMovie="showMovieDetails" />
-        <CardDetails :selectedMovie="selectedMovie" v-if="selectedMovie" />
+        <Card :movie="selectedMovie" v-if="selectedMovie" />
     </div>
 </template>
   
@@ -52,7 +52,7 @@ export default {
     created() {
         console.log('created funziona');
     }
-}
+};
 </script>
   
 <style lang="scss">

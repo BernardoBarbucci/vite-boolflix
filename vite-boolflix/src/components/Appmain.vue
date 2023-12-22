@@ -1,6 +1,6 @@
 <template>
     <main>
-        <Card v-for="movie in movies" :key="movie.id" :movie="movie" @selectMovie="selectMovie">
+        <Card v-for="movie in movies" :key="movie.id" :movie="movie" id="movie-card" @selectMovie="selectMovie">
             {{ movie.title }}
         </Card>
     </main>
@@ -34,7 +34,7 @@ main {
     align-items: center;
     justify-content: center;
 
-    article {
+    #movie-card {
         max-width: 33rem;
         color: white;
         list-style-type: none;

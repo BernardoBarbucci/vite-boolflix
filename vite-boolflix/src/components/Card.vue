@@ -1,10 +1,10 @@
 <template>
     <section id="movie-details">
         <div class="card" @click="handleCardClick">
-            <h2>{{ selectedMovie.title }}</h2>
-            <p>Titolo originale: {{ selectedMovie.original_title }}</p>
-            <p>Lingua: {{ selectedMovie.original_language }}</p>
-            <p>Voto: {{ selectedMovie.vote_average }}</p>
+            <h2>{{ movie.title }}</h2>
+            <p>Titolo originale: {{ movie.original_title }}</p>
+            <p>Lingua: {{ movie.original_language }}</p>
+            <p>Voto: {{ movie.vote_average }}</p>
         </div>
     </section>
 </template>
@@ -13,10 +13,11 @@
 export default {
     name: 'Card',
     props: {
-        Movie: Object,
+        movie: Object,
     },
     methods: {
         handleCardClick() {
+            console.log('Card cliccata dovrebbe segnalare questo film:', this.movie);
             this.$emit('selectMovie', this.movie);
         },
     },

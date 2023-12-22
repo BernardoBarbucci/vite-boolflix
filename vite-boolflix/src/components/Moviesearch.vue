@@ -9,16 +9,14 @@
   
 <script>
 export default {
-    name: 'Moviesearch',
-    data() {
-        return {
-            searchedString: '',
-        };
+    name: 'Card',
+    props: {
+        movie: Object,
     },
     methods: {
-        searchMovies() {
-            // Emetto l'evento "search" con la stringa cercata
-            this.$emit('search', this.searchedString);
+        handleCardClick() {
+            this.$emit('selectMovie', this.movie);
+            console.log('Dettagli del film cliccato:', this.movie); // Stampa le informazioni del film in console
         },
     },
 };
