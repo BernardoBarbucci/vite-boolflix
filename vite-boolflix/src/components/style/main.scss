@@ -23,7 +23,28 @@ header {
 
 // MAIN
 main {
+    padding-top: 1.5rem;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
     background-color: $theme-color;
+
+    #media-card {
+        max-width: 19rem;
+        color: white;
+        list-style-type: none;
+        margin: 1rem;
+        height: 12rem;
+        padding-top: 7px;
+        width: 100%;
+        border-radius: 20px;
+        border-color: white;
+        background-color: #830000;
+        text-align: center;
+    }
 }
 
 // FOOTER
