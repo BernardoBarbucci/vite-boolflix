@@ -22,6 +22,10 @@ export default {
             }
         },
         getMovieImageURL(posterPath) {
+            if (!posterPath) {
+                return null;
+                // Restituisci null se il posterPath è vuoto o nullo
+            }
             const baseURL = 'https://image.tmdb.org/t/p/';
             const imageSize = 'w780';
             return `${baseURL}${imageSize}${posterPath}`;
@@ -51,6 +55,7 @@ export default {
     .poster-img {
         width: 100%;
     }
+
 
     .language {
         height: .8rem;
