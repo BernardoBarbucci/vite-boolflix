@@ -37,7 +37,7 @@ main {
     align-items: center;
     justify-content: center;
 
-    #movie-card {
+    #media-card {
         max-width: 33rem;
         color: white;
         list-style-type: none;

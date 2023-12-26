@@ -1,10 +1,15 @@
 <template>
     <section id="movie-details">
-        <div id="card" @click="handleCardClick" :class="{ 'show-details': movie.selected }">
+        <!-- <div id="card" @click="handleCardClick" :class="{ 'show-details': movie.selected }">
             <h2>{{ movie.title }}</h2>
             <p>Titolo originale: {{ movie.original_title }}</p>
             <p>Language: <img :src="getLanguageImage(movie.original_language)" alt="Movie Poster"></p>
             <p>Voto: {{ movie.vote_average }}</p>
+        </div> -->
+        <div id="card" @click="handleCardClick" :class="{ 'show-details': media.selected }">
+            <h2>{{ media.title || media.name }}</h2>
+            <p>Language: <img :src="getLanguageImage(media.original_language)" alt="Media Poster"></p>
+            <p>Voto: {{ media.vote_average }}</p>
         </div>
     </section>
 </template>
@@ -13,12 +18,12 @@
 export default {
     name: 'Card',
     props: {
-        movie: Object,
+        media: Object,
     },
     methods: {
         handleCardClick() {
-            if (!this.movie.selected) {
-                this.$emit('selectMovie', this.movie);
+            if (!this.media.selected) {
+                this.$emit('selectMedia', this.media);
             }
         },
         // map per associare img alla sua lingua
