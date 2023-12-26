@@ -1,7 +1,7 @@
 <template>
     <main>
-        <Card v-for="movie in movies" :key="movie.id" :movie="movie" id="movie-card" @selectMovie="selectMovie">
-            {{ movie.title }}
+        <Card v-for="media in mediaList" :key="media.id" :media="media" id="media-card" @selectMedia="selectMedia">
+            {{ media.title }}
         </Card>
     </main>
 </template>
@@ -15,13 +15,13 @@ export default {
         Card,
     },
     props: {
-        movies: Array,
+        mediaList: Array,
     },
     methods: {
-        selectMovie(movie) {
-            this.$emit('selectMovie', movie);
-            this.movies.forEach((m) => {
-                m.selected = m.id === movie.id;
+        selectMedia(media) {
+            this.$emit('selectMedia', media);
+            this.mediaList.forEach((m) => {
+                m.selected = m.id === media.id;
             });
         },
     },
