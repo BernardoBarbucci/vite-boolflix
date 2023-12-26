@@ -46,10 +46,8 @@ export default {
             return `${imagesFolder}${imageName}`;
         },
         roundRating(rating) {
-            // prende il voto medio, moltiplica per 2, arrotonda e quindi divide per 2 per avere un arrotondamento a 0.5. 
-            // poi usa Math.min e Math.max per limitare il risultato a un intervallo da 1 a 5. 
-            // La funzione toFixed(1) viene utilizzata per mantenere solo un decimale nel risultato finale.
-            return Math.min(5, Math.max(1, Math.round(rating * 2) / 2)).toFixed(1);
+            // Mappa il voto da 1-10 a 1-5 con un massimo di 1 decimale
+            return (rating / 2).toFixed(1);
         }
     },
 };
