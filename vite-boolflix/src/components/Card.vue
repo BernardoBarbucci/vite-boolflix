@@ -4,7 +4,12 @@
             <img :src="getMovieImageURL(media.poster_path)" class="poster-img" alt="Movie Poster">
             <h2>{{ media.title || media.name }}</h2>
             <p>Language: <img :src="getLanguageImage(media.original_language)" class="language" alt="Media Poster"></p>
-            <p>Voto: {{ roundRating(parseFloat(media.vote_average)) }} </p>
+            <!-- <p>Voto: {{ roundRating(parseFloat(media.vote_average)) }} </p> -->
+            <p>Voto:
+                <span v-for="star in roundRating(parseFloat(media.vote_average))" :key="star">
+                    <i class="fa-solid fa-star"></i>
+                </span>
+            </p>
         </div>
     </section>
 </template>
@@ -46,8 +51,10 @@ export default {
             return `${imagesFolder}${imageName}`;
         },
         roundRating(rating) {
-            // Mappa il voto da 1-10 a 1-5 arrotondando sempre per eccesso
-            return Math.min(5, Math.ceil(rating / 2));
+            // Mappa il voto da 1-10 a 1-5 arrotondando sempre per eccesso + attribuisce x stelle in base al numero del voto ricevuto
+            const maxStars = 5;
+            const numberOfStars = Math.ceil(rating / 2);
+            return Array.from({ length: maxStars }, (_, index) => index < numberOfStars);
         }
     },
 };
