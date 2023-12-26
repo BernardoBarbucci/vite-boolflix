@@ -38,8 +38,8 @@ export default {
                     console.log(error);
                 });
         },
-        showMovieDetails(movie) {
-            this.selectedMovie = movie;
+        showMediaDetails(movie) {
+            this.selectedMedia = movie;
         },
     },
     created() {
