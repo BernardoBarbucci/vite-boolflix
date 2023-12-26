@@ -3,7 +3,7 @@
         <div id="card" @click="handleCardClick" :class="{ 'show-details': movie.selected }">
             <h2>{{ movie.title }}</h2>
             <p>Titolo originale: {{ movie.original_title }}</p>
-            <p>Lingua: {{ movie.original_language }}</p>
+            <img :src="getLanguageImage(movie.original_language)" alt="Movie Poster">
             <p>Voto: {{ movie.vote_average }}</p>
         </div>
     </section>
@@ -30,7 +30,7 @@ export default {
                 ja: 'jap.png',
             };
 
-            const imagesFolder = 'flagImg';
+            const imagesFolder = 'flagImg/';
             const defaultImage = '';
 
             const imageName = languageImageMap[language] || defaultImage;
