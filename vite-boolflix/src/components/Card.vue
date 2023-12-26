@@ -21,6 +21,11 @@ export default {
                 this.$emit('selectMedia', this.media);
             }
         },
+        getMovieImageURL(posterPath) {
+            const baseURL = 'https://image.tmdb.org/t/p/';
+            const imageSize = 'w342';
+            return `${baseURL}${imageSize}${posterPath}`;
+        },
         // map per associare img alla sua lingua
         getLanguageImage(language) {
             const languageImageMap = {
