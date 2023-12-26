@@ -1,6 +1,7 @@
 <template>
     <section id="movie-details">
         <div id="card" @click="handleCardClick" :class="{ 'show-details': media.selected }">
+            <img :src="getMovieImageURL()" alt="Movie Poster">
             <h2>{{ media.title || media.name }}</h2>
             <p>Language: <img :src="getLanguageImage(media.original_language)" alt="Media Poster"></p>
             <p>Voto: {{ media.vote_average }}</p>
@@ -39,7 +40,6 @@ export default {
     },
 };
 </script>
-
   
 <style lang="scss" scoped>
 #card {
