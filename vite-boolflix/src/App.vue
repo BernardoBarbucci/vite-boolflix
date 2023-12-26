@@ -24,15 +24,15 @@ export default {
     },
     data() {
         return {
-            moviesList: [],
-            selectedMovie: null,
+            mediaList: [],
+            selectedMedia: null,
         };
     },
     methods: {
-        searchMovies(searchElement) {
-            axios.get('https://api.themoviedb.org/3/search/movie?api_key=5b64bb8553442712f5b4d63bfbe74199&query=' + searchElement)
+        searchMedia(searchElement) {
+            axios.get('https://api.themoviedb.org/3/search/multi?api_key=5b64bb8553442712f5b4d63bfbe74199&query=' + searchElement)
                 .then((response) => {
-                    this.moviesList = response.data.results;
+                    this.mediaList = response.data.results;
                 })
                 .catch(function (error) {
                     console.log(error);
