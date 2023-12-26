@@ -4,7 +4,7 @@
             <img :src="getMovieImageURL(media.poster_path)" class="poster-img" alt="Movie Poster">
             <h2>{{ media.title || media.name }}</h2>
             <p>Language: <img :src="getLanguageImage(media.original_language)" class="language" alt="Media Poster"></p>
-            <p>Voto: {{ roundRating(media.vote_average) }} </p>
+            <p>Voto: {{ roundRating(parseFloat(media.vote_average)) }} </p>
         </div>
     </section>
 </template>
