@@ -4,7 +4,7 @@
             <img :src="getMovieImageURL(media.poster_path)" class="poster-img" alt="Movie Poster">
             <h2>{{ media.title || media.name }}</h2>
             <p>Language: <img :src="getLanguageImage(media.original_language)" class="language" alt="Media Poster"></p>
-            <p>Voto: {{ media.vote_average }}</p>
+            <p>Voto: {{ roundRating(media.vote_average) }} </p>
         </div>
     </section>
 </template>
@@ -23,8 +23,7 @@ export default {
         },
         getMovieImageURL(posterPath) {
             if (!posterPath) {
-                return null;
-                // Restituisci null se il posterPath è vuoto o nullo
+                return null; // Restituisci null se il posterPath è vuoto o nullo
             }
             const baseURL = 'https://image.tmdb.org/t/p/';
             const imageSize = 'w780';
@@ -46,6 +45,12 @@ export default {
             const imageName = languageImageMap[language] || defaultImage;
             return `${imagesFolder}${imageName}`;
         },
+        roundRating(rating) {
+            // prende il voto medio, moltiplica per 2, arrotonda e quindi divide per 2 per avere un arrotondamento a 0.5. 
+            // poi usa Math.min e Math.max per limitare il risultato a un intervallo da 1 a 5. 
+            // La funzione toFixed(1) viene utilizzata per mantenere solo un decimale nel risultato finale.
+            return Math.min(5, Math.max(1, Math.round(rating * 2) / 2)).toFixed(1);
+        }
     },
 };
 </script>
