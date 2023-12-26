@@ -2,16 +2,14 @@
     <section id="movie-details">
         <div id="card" @click="handleCardClick" :class="{ 'show-details': media.selected }">
             <img :src="getMovieImageURL(media.poster_path)" class="poster-img" alt="Movie Poster">
-            <div class="card-details">
-                <h2>{{ media.title || media.name }}</h2>
-                <p class="overview" v-if="media.selected">{{ media.overview }}</p>
-                <p v-else>Voto:
-                    <span v-for="(star, index) in roundRating(parseFloat(media.vote_average))" :key="index">
-                        <i v-if="star" class="fas fa-star"></i>
-                        <i v-else class="far fa-star"></i>
-                    </span>
-                </p>
-            </div>
+            <h2>{{ media.title || media.name }}</h2>
+            <p>Language: <img :src="getLanguageImage(media.original_language)" class="language" alt="Media Poster"></p>
+            <p>Voto:
+                <span v-for="(star, index) in roundRating(parseFloat(media.vote_average))" :key="index">
+                    <i v-if="star" class="fas fa-star"></i>
+                    <i v-else class="far fa-star"></i>
+                </span>
+            </p>
         </div>
     </section>
 </template>
@@ -71,7 +69,7 @@ export default {
     }
 
     h2 {
-        font-size: 1.35rem;
+        font-size: 1.4rem;
     }
 
     .language {
