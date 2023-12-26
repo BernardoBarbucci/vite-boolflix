@@ -65,6 +65,8 @@ export default {
 #card {
     .poster-img {
         width: 100%;
+        border-top-right-radius: 20px;
+        border-top-left-radius: 20px;
     }
 
 
