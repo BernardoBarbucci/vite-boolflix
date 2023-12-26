@@ -3,7 +3,7 @@
         <div id="card" @click="handleCardClick" :class="{ 'show-details': movie.selected }">
             <h2>{{ movie.title }}</h2>
             <p>Titolo originale: {{ movie.original_title }}</p>
-            <img :src="getLanguageImage(movie.original_language)" alt="Movie Poster">
+            <p>Language: <img :src="getLanguageImage(movie.original_language)" alt="Movie Poster"></p>
             <p>Voto: {{ movie.vote_average }}</p>
         </div>
     </section>
@@ -21,6 +21,7 @@ export default {
                 this.$emit('selectMovie', this.movie);
             }
         },
+        // map per associare img alla sua lingua
         getLanguageImage(language) {
             const languageImageMap = {
                 en: 'eng.jpeg',
@@ -29,12 +30,10 @@ export default {
                 it: 'ita.png',
                 ja: 'jap.png',
             };
-
             const imagesFolder = 'flagImg/';
+            // mostra la lingua originale SE img non corrisponde
             const defaultImage = '';
-
             const imageName = languageImageMap[language] || defaultImage;
-
             return `${imagesFolder}${imageName}`;
         },
     },
@@ -42,10 +41,11 @@ export default {
 </script>
 
   
-<style lang="scss">
-#movie-details #card {
-    >* {
-        background-color: #830000;
+<style lang="scss" scoped>
+#card {
+    img {
+        height: .8rem;
+        width: 1.5rem;
     }
 }
 </style>
