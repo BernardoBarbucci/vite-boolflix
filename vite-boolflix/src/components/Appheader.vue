@@ -11,14 +11,14 @@ export default {
 </script>
 
 <style lang="scss">
+@use '../components/style/main.scss' as *;
+
 header {
+
     height: 5rem;
 
     h1 {
         color: #830000;
     }
-
-    // border: 2px solid yellow;
-    // background: linear-gradient(90deg, #830000, black);
 }
 </style>

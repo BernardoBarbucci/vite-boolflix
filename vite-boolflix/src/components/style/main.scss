@@ -3,6 +3,27 @@
 
 * {
     @include reset;
-    background-color: $theme-color;
+    // background-color: $theme-color;
     font-family: 'Roboto', sans-serif;
 }
+
+body {
+    background-color: $theme-color;
+}
+
+// HEADER
+header {
+    background-color: $theme-color;
+}
+
+// MOVIE-SEARCH
+#movie-search {
+    background-color: $theme-color;
+}
+
+// MAIN
+main {
+    background-color: $theme-color;
+}
+
+// FOOTER

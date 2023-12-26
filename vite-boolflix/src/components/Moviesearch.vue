@@ -2,21 +2,22 @@
     <section id="movie-search">
         <div class="container">
             <input v-model="searchedString" type="text" placeholder="Cerca film" @keyup.enter="searchMovies">
-            <button @click="$emit('search', searchedString)">Cerca</button>
+            <button @click="searchMovies">Cerca</button>
         </div>
     </section>
 </template>
-  
+
 <script>
 export default {
-    name: 'Card',
-    props: {
-        movie: Object,
+    name: 'Moviesearch',
+    data() {
+        return {
+            searchedString: '',
+        };
     },
     methods: {
-        handleCardClick() {
-            this.$emit('selectMovie', this.movie);
-            console.log('Dettagli del film cliccato:', this.movie); // Stampa le informazioni del film in console
+        searchMovies() {
+            this.$emit('search', this.searchedString);
         },
     },
 };

@@ -1,6 +1,6 @@
 <template>
     <section id="movie-details">
-        <div class="card" @click="handleCardClick">
+        <div id="card" @click="handleCardClick" :class="{ 'show-details': movie.selected }">
             <h2>{{ movie.title }}</h2>
             <p>Titolo originale: {{ movie.original_title }}</p>
             <p>Lingua: {{ movie.original_language }}</p>
@@ -8,7 +8,7 @@
         </div>
     </section>
 </template>
-  
+
 <script>
 export default {
     name: 'Card',
@@ -24,26 +24,11 @@ export default {
     },
 };
 </script>
+
   
 <style lang="scss">
-.movie-details {
-    height: 100%;
-    width: 40rem;
-    margin: 2rem auto;
-    padding: 1rem;
-    border: 2px solid yellow;
-    background-color: #830000;
-
-    h2 {
-        color: white;
-        font-size: 2rem;
-        text-align: center;
-        margin-bottom: 1rem;
-        background-color: #830000;
-    }
-
-    p {
-        color: white;
+#movie-details #card {
+    >* {
         background-color: #830000;
     }
 }

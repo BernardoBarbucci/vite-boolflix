@@ -5,7 +5,7 @@
         </Card>
     </main>
 </template>
-  
+
 <script>
 import Card from './Card.vue';
 
@@ -30,7 +30,7 @@ export default {
 
 <style lang="scss">
 main {
-    margin-top: 1rem;
+    padding-top: 1.5rem;
     color: white;
     display: flex;
     flex-direction: column;

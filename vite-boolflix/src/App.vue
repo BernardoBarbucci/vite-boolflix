@@ -6,7 +6,7 @@
         <Card :movie="selectedMovie" v-if="selectedMovie" />
     </div>
 </template>
-  
+
 <script>
 import Appheader from './components/Appheader.vue';
 import Appmain from './components/Appmain.vue'
@@ -26,28 +26,20 @@ export default {
         return {
             moviesList: [],
             selectedMovie: null,
-            showMovieDetails: false,
         };
     },
     methods: {
         searchMovies(searchElement) {
-            console.log(searchElement);
-
             axios.get('https://api.themoviedb.org/3/search/movie?api_key=5b64bb8553442712f5b4d63bfbe74199&query=' + searchElement)
                 .then((response) => {
-                    // handle success
-                    console.log(response);
                     this.moviesList = response.data.results;
                 })
                 .catch(function (error) {
-                    // handle error
                     console.log(error);
                 });
         },
         showMovieDetails(movie) {
-            // Visualizza i dettagli del film senza fare una seconda chiamata API
             this.selectedMovie = movie;
-            this.showDetails = true;
         },
     },
     created() {
