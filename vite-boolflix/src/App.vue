@@ -1,9 +1,9 @@
 <template>
     <div>
         <Appheader />
-        <Moviesearch @search="searchMovies" />
-        <Appmain :movies="moviesList" @selectMovie="showMovieDetails" />
-        <Card :movie="selectedMovie" v-if="selectedMovie" />
+        <Moviesearch @search="searchMedia" />
+        <Appmain :mediaList="mediaList" @selectMedia="showMediaDetails" />
+        <Card :media="selectedMedia" v-if="selectedMedia" />
     </div>
 </template>
 
