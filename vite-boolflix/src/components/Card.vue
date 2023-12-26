@@ -6,8 +6,9 @@
             <p>Language: <img :src="getLanguageImage(media.original_language)" class="language" alt="Media Poster"></p>
             <!-- <p>Voto: {{ roundRating(parseFloat(media.vote_average)) }} </p> -->
             <p>Voto:
-                <span v-for="star in roundRating(parseFloat(media.vote_average))" :key="star">
-                    <i class="fa-solid fa-star"></i>
+                <span v-for="(star, index) in roundRating(parseFloat(media.vote_average))" :key="index">
+                    <i v-if="star" class="fas fa-star"></i>
+                    <i v-else class="far fa-star"></i>
                 </span>
             </p>
         </div>
@@ -53,7 +54,7 @@ export default {
         roundRating(rating) {
             // Mappa il voto da 1-10 a 1-5 arrotondando sempre per eccesso + attribuisce x stelle in base al numero del voto ricevuto
             const maxStars = 5;
-            const numberOfStars = Math.ceil(rating / 2);
+            const numberOfStars = Math.ceil((rating / 10) * maxStars);
             return Array.from({ length: maxStars }, (_, index) => index < numberOfStars);
         }
     },
