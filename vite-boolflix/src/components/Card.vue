@@ -21,6 +21,22 @@ export default {
                 this.$emit('selectMovie', this.movie);
             }
         },
+        getLanguageImage(language) {
+            const languageImageMap = {
+                en: 'eng.jpeg',
+                fr: 'france.png',
+                de: 'deut.webp',
+                it: 'ita.png',
+                ja: 'jap.png',
+            };
+
+            const imagesFolder = 'flagImg';
+            const defaultImage = '';
+
+            const imageName = languageImageMap[language] || defaultImage;
+
+            return `${imagesFolder}${imageName}`;
+        },
     },
 };
 </script>
