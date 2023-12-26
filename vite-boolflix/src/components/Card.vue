@@ -46,8 +46,8 @@ export default {
             return `${imagesFolder}${imageName}`;
         },
         roundRating(rating) {
-            // Mappa il voto da 1-10 a 1-5 con un massimo di 1 decimale
-            return (rating / 2).toFixed(1);
+            // Mappa il voto da 1-10 a 1-5 arrotondando sempre per eccesso
+            return Math.min(5, Math.ceil(rating / 2));
         }
     },
 };
