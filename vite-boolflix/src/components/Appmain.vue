@@ -1,7 +1,7 @@
 <template>
     <main>
         <Card v-for="media in mediaList" :key="media.id" :media="media" id="media-card" @selectMedia="selectMedia">
-            {{ media.title }}
+            {{ movie.title || media.title }}
         </Card>
     </main>
 </template>

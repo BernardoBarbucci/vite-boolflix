@@ -1,11 +1,5 @@
 <template>
     <section id="movie-details">
-        <!-- <div id="card" @click="handleCardClick" :class="{ 'show-details': movie.selected }">
-            <h2>{{ movie.title }}</h2>
-            <p>Titolo originale: {{ movie.original_title }}</p>
-            <p>Language: <img :src="getLanguageImage(movie.original_language)" alt="Movie Poster"></p>
-            <p>Voto: {{ movie.vote_average }}</p>
-        </div> -->
         <div id="card" @click="handleCardClick" :class="{ 'show-details': media.selected }">
             <h2>{{ media.title || media.name }}</h2>
             <p>Language: <img :src="getLanguageImage(media.original_language)" alt="Media Poster"></p>
@@ -34,10 +28,11 @@ export default {
                 de: 'deut.webp',
                 it: 'ita.png',
                 ja: 'jap.png',
+                ko: 'ko.jpg',
             };
             const imagesFolder = 'flagImg/';
             // mostra la lingua originale SE img non corrisponde
-            const defaultImage = '';
+            const defaultImage = 'hello';
             const imageName = languageImageMap[language] || defaultImage;
             return `${imagesFolder}${imageName}`;
         },
