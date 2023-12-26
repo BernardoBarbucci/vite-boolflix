@@ -1,9 +1,9 @@
 <template>
     <section id="movie-details">
         <div id="card" @click="handleCardClick" :class="{ 'show-details': media.selected }">
-            <img :src="getMovieImageURL()" alt="Movie Poster">
+            <img :src="getMovieImageURL(media.poster_path)" class="poster-img" alt="Movie Poster">
             <h2>{{ media.title || media.name }}</h2>
-            <p>Language: <img :src="getLanguageImage(media.original_language)" alt="Media Poster"></p>
+            <p>Language: <img :src="getLanguageImage(media.original_language)" class="language" alt="Media Poster"></p>
             <p>Voto: {{ media.vote_average }}</p>
         </div>
     </section>
@@ -23,7 +23,7 @@ export default {
         },
         getMovieImageURL(posterPath) {
             const baseURL = 'https://image.tmdb.org/t/p/';
-            const imageSize = 'w342';
+            const imageSize = 'w780';
             return `${baseURL}${imageSize}${posterPath}`;
         },
         // map per associare img alla sua lingua
@@ -48,7 +48,11 @@ export default {
   
 <style lang="scss" scoped>
 #card {
-    img {
+    .poster-img {
+        width: 100%;
+    }
+
+    .language {
         height: .8rem;
         width: 1.5rem;
     }
